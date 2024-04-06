@@ -1,0 +1,167 @@
+.tour {
+  margin: 0 108px;
+}
+
+/* Основное */
+
+.shortcut {
+  display: flex;
+  column-gap: 24px;
+  justify-content: end;
+}
+
+.shortcut__info {
+}
+
+.shortcut__title {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proto Grotesk';
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+.shortcut__tag-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  column-gap: 16px;
+  row-gap: 8px;
+}
+
+.shortcut__tag {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.shortcut__tag-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.shortcut__tag-name {
+  margin: 0;
+  padding: 0;
+  font-family: "Suisse Intl";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.shortcut__buttons {
+  min-width: 390px;
+  border: red 1px solid;
+}
+
+/* Программа тура */
+
+.plan {
+  margin-top: 40px;
+}
+
+.plan__title {
+  margin: 0;
+  padding: 0 0 32px;
+  font-family: "Proto Grotesk";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.plan__day {
+
+}
+
+.plan__day-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plan__day-number-container {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.plan__day-number-bg {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background-color: #1D1D1D;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.plan__day-number {
+  margin: 0;
+  padding: 0;
+  font-family: "Proto Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: white;
+}
+
+.plan__day-text {
+  font-family: "Proto Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.plan__day-arrow {
+
+}
+
+.plan__day-schedule {
+  margin: 16px 0 0 23px;
+  padding-left: 23px;
+  border-left: 2px solid #EBEBEB;
+}
+
+.plan__day-schedule-item {
+
+}
+
+.plan__day-time {
+  margin: 0;
+  padding: 16px 0 0 28px;
+  font-family: "Suisse Intl";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.plan__day-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan__day-bullet {
+  margin: 0;
+  padding: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.plan__day-bullet-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #D9D9D9;
+  border-radius: 4px;
+}
+
+.plan__day-bullet-text {
+  margin: 0;
+  padding: 0 0 0 12px;
+  font-family: "Suisse Intl";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
