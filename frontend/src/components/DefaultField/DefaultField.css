@@ -1,0 +1,46 @@
+.default-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.default-span {
+  color: #A6A6A6;
+  font-family: "Suisse Intl";
+  margin: 0;
+  padding: 0 0 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.default-input {
+  width: 328px;
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #D9D9D9;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  max-height: 48px;
+  font-family: "Suisse Intl";
+}
+
+.default-input:focus {
+  outline: none;
+  border: 1px solid #D9D9D9;
+}
+
+.default-input::placeholder {
+  color: #A6A6A6;
+}
+
+.default-extra {
+  padding: 0;
+  margin: 0;
+  font-family: "Suisse Intl";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #A6A6A6;
+}
