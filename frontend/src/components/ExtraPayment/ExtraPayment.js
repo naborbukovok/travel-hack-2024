@@ -2,7 +2,7 @@ import dfIcon from "../../images/date-field-icon.svg";
 
 import "./ExtraPayment.css";
 
-function DateField(props) {
+function ExtraPayment(props) {
   return (
     <div>
       <p></p>
@@ -12,4 +12,4 @@ function DateField(props) {
   );
 }
 
-export default DateField;
+export default ExtraPayment;

@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// import Booking from "../Booking-Old/Booking";
 import Catalog from "../Catalog/Catalog";
 import Tour from "../Tour/Tour";
 import Profile from "../Profile/Profile";
@@ -13,7 +12,6 @@ function App() {
         <Route path="/tours" element={<Catalog />} />
         <Route path="/tour" element={<Tour />} />
         <Route path="/profile" element={<Profile />} />
-        {/* <Route path="/booking" element={<Booking />} /> */}
       </Routes>
     </div>
   );

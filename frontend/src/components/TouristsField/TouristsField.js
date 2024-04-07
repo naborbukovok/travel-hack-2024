@@ -7,6 +7,7 @@ function TouristsField(props) {
     <label className="tourists-field">
       <img src={tfIcon} alt="" className="tourists-icon" />
       <input
+        onChange={props.onChange}
         className="tourists-input"
         id={props.id}
         type="number"
