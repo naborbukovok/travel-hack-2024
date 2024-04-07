@@ -1,13 +1,15 @@
 .header {
-  padding: 24px 108px;
-  border: red 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.header__text {
-  margin: 0;
-  padding: 0;
-  font-family: 'Suisse Intl';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+.header-pic {
+  width: 100%;
+}
+
+.blue-line-pic {
+  width: calc(100% - 216px);
+  padding: 24px 0 40px;
 }

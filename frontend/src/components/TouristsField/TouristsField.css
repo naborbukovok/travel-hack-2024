@@ -1,0 +1,36 @@
+.tourists-field {
+  width: 328px;
+  padding: 12px 16px;
+  background-color: white;
+  display: flex;
+  column-gap: 8px;
+  border-radius: 12px;
+  border: 1px solid #D9D9D9;
+  max-height: 48px;
+}
+
+.tourists-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.tourists-input {
+  border: none;
+  width: 296px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.tourists-input:focus {
+  outline: none;
+  border: none;
+}
+
+.tourists-input::placeholder {
+  color: #A6A6A6;
+  font-family: "Suisse Intl";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
