@@ -18,7 +18,7 @@ class ServerSettings(BaseSettings):
     reload: bool = False
     loop: str = "auto"
     host: str = "0.0.0.0"
-    port: int = 3000
+    port: int = 4000
 
     class Config:
         env_prefix = "api_"
