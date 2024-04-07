@@ -1,6 +1,7 @@
 .big-field {
   display: flex;
   flex-direction: column;
+
 }
 
 .big-span {
@@ -14,7 +15,6 @@
 }
 
 .big-input {
-  width: 728px;
   min-height: 86px;
   padding: 12px 16px;
   background-color: #FFFFFF;
@@ -25,6 +25,8 @@
   line-height: 24px;
   max-height: 48px;
   font-family: "Suisse Intl";
+  min-width: 728px;
+  max-width: 728px;
 }
 
 .big-input:focus {

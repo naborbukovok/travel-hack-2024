@@ -5,6 +5,40 @@
   position: relative;
 }
 
+.header-breadcrumbs {
+
+}
+
+.shortcut__container {
+  padding-left: 108px;
+  padding-top: 24px;
+}
+
+.shortcut__search {
+  margin-top: 24px;
+}
+
+.shortcut__filters {
+  width: 30%;
+}
+
+.catalog__main {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding-left: 108px;
+  margin-bottom: 80px;
+}
+
+.catalog__main__cards {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+
+}
+
 .catalog-button {
   width: 392px;
   height: 444px;

@@ -7,7 +7,6 @@ function DefaultCheckbox(props) {
         className="default-ch-input"
         id={props.id}
         type="checkbox"
-        checked
       ></input>
       <span className="default-ch-span">{props.span}</span>
     </label>

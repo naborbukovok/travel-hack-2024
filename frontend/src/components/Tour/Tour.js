@@ -1,14 +1,6 @@
 // import { useLocation, Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import tagLengthIcon from "../../images/tour-tag-length-icon.svg";
-import planArrowIcon from "../../images/tour-plan-arrow-icon.svg";
-import photoBlog from "../../images/photo-blog.svg";
-import aboutPic from "../../images/tour-about-pic.svg";
-import planPic from "../../images/tour-plan-pic.svg";
-import faqPic from "../../images/tour-faq-pic.svg";
-import bookingAuth from "../../images/tour-booking-auth.svg";
-import buttonPic from "../../images/tour-button-pic.svg";
 
 import "./Tour.css";
 import TouristsField from "../TouristsField/TouristsField";
@@ -17,10 +9,32 @@ import DefaultField from "../DefaultField/DefaultField";
 import DefaultCheckbox from "../DefaultCheckbox/DefaultCheckbox";
 import BigField from "../BigField/BigField";
 import Header from "../Header/Header";
+import Button from "../Button/Button";
+
+import pb from "../../images/pb.svg";
+import shortcutButtons from "../../images/shortcut-buttons-pic.svg";
+import tagLengthIcon from "../../images/tour-tag-length-icon.svg";
+import planArrowIcon from "../../images/tour-plan-arrow-icon.svg";
+import photoBlog from "../../images/photo-blog.svg";
+import aboutPic from "../../images/tour-about-pic.svg";
+import faqPic from "../../images/tour-faq-pic.svg";
+import smallInfo from "../../images/tour-small-info.svg";
+import bookingAuth from "../../images/tour-booking-auth.svg";
+import feedback from "../../images/feedback.svg";
+import pushkin from "../../images/pushkin.svg";
 
 function Tour() {
+  // Сюда хотели по апи получать данные карточки в зависимости от того какую в каталоге выбрали
   // const { title, ... } = props;
-  // const location = useLocation();
+
+  // 45660 - Минимальная цена за конкретный подтянутый тур
+  const initialPrice = 45660;
+  // Это за тур
+  const [price, setPrice] = useState(initialPrice);
+  // Это за доп услуги
+  const [extraPrice, setExtraPrice] = useState(0);
+  // количество человек по дефолту 1
+  const [tourists, setTourists] = useState(1);
 
   const title = "Две столицы: Москва — Санкт-Петербург «Семейные каникулы»";
 
@@ -74,18 +88,20 @@ function Tour() {
             "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
           about: "Музей",
           name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
+          price: 600,
+        },
+        {
+          image: "https://globalsib.com/wp-content/uploads/2022/11/6.jpg",
+          about: "Музей",
+          name: "Музей «‌Государственная Третьяковская галерея»",
+          price: 500,
         },
         {
           image:
-            "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
+            "https://sun1-99.userapi.com/impg/2Q4GZxnaeVea_6ETkCr0H2Kl3aLRFp-Ss60OFw/WDv9oClwxEc.jpg?size=1280x836&quality=96&sign=22e4742afc631383385a1d90adf2381b&c_uniq_tag=ADjI5jM9ESP4HnB8Pv8OdlbKEiIkXq5HHeYXU1BXSKc&type=album",
           about: "Музей",
-          name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
-        },
-        {
-          image:
-            "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
-          about: "Музей",
-          name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
+          name: "Музей Кунсткамера в Санкт-Петербурге",
+          price: 700,
         },
       ],
     },
@@ -120,21 +136,17 @@ function Tour() {
       extra: [
         {
           image:
-            "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
-          about: "Музей",
-          name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
+            "https://avatars.dzeninfra.ru/get-zen_doc/4467222/pub_61f7b8e72aef380b50f9bd3a_61f7ba6f0b0e4258978542ce/scale_1200",
+          about: "Экскурсия",
+          name: "Тур по крышам",
+          price: 150,
         },
         {
           image:
-            "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
+            "https://avatars.dzeninfra.ru/get-zen_doc/1587710/pub_5ec2be61f7249d56194dc120_5ec52b16c5ff7a67429923f4/scale_1200",
           about: "Музей",
-          name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
-        },
-        {
-          image:
-            "https://static.tildacdn.com/tild3136-6335-4530-a235-646133356632/5ce26227d414a.jpg",
-          about: "Музей",
-          name: "ГМИИ им. А.С. Пушкина. Выставка «Брат Иван. Коллекции Михаила и Ивана Мороз»",
+          name: "Национальный музей",
+          price: 300,
         },
       ],
     },
@@ -149,7 +161,24 @@ function Tour() {
   });
 
   const onCardClick = (e) => {
-    console.log(e.target.children[1]);
+    if (e.target.className === "plan__day-extra-item") {
+      console.log(e.target.querySelector(".plan__day-extra-name"));
+      setExtraPrice(
+        extraPrice +
+          parseInt(
+            e.target
+              .querySelector(".plan__day-extra-price")
+              .innerText.split(" ")[2]
+          )
+      );
+      // Небольшой костыль
+      document.querySelector(".pushkin").classList.remove("pushkin-none");
+    }
+  };
+
+  const onTouristsChange = (e) => {
+    setPrice(initialPrice * e.target.value);
+    setTourists(e.target.value);
   };
 
   return (
@@ -175,7 +204,14 @@ function Tour() {
           </div>
 
           <div className="shortcut__buttons">
-            <p>Вторая колонка</p>
+            <Button
+              width="169px"
+              height="48px"
+              bg="#FFCF08"
+              main={`от ${initialPrice} ₽`}
+              editional="Выбрать"
+            />
+            <img src={shortcutButtons} alt="" className="sb" />
           </div>
         </section>
 
@@ -264,6 +300,7 @@ function Tour() {
                         >
                           <p className="plan__day-extra-about">{item.about}</p>
                           <p className="plan__day-extra-name">{item.name}</p>
+                          <p className="plan__day-extra-price">{`Добавить за ${item.price} ₽`}</p>
                         </div>
                       ))}
                     </div>
@@ -278,7 +315,14 @@ function Tour() {
           <div className="col-2">
             <div className="col-2-form">
               <DateField id="col-2-date" />
-              <TouristsField id="col-2-tourists" />
+              <TouristsField id="col-2-tourists" onChange={onTouristsChange} />
+              <img src={pushkin} alt="" className="pushkin pushkin-none" />
+              <Button
+                width="100%"
+                height="48px"
+                bg="#FFCF08"
+                main={`Купить тур от ${price + extraPrice} ₽`}
+              />
             </div>
           </div>
         </div>
@@ -287,9 +331,13 @@ function Tour() {
           <div className="booking-1">
             <h3 className="booking-title">Забронировать тур</h3>
             <img src={bookingAuth} alt="" className="booking-auth-button" />
+            {/* Форма должна была отправляться на бэк */}
             <form className="booking-form">
               <DateField id="booking-date" />
-              <TouristsField id="booking-tourists" />
+              <TouristsField
+                id="booking-tourists"
+                onChange={onTouristsChange}
+              />
               <DefaultField
                 id="booking-surname"
                 span="Фамилия"
@@ -323,62 +371,24 @@ function Tour() {
               />
             </form>
           </div>
-          <div className="booking-2"></div>
+          <div className="booking-2">
+              <img src={smallInfo} alt={title} className="small-info-pic" />
+          </div>
         </div>
 
+        <img src={pb} alt="" className="pb" />
+
         <Link to="/profile">
-          <img src={buttonPic} alt="" className="button-pic" />
+          <Button
+            width="808px"
+            height="48px"
+            bg="#FFCF08"
+            main="Перейти к оплате"
+            editional={`${price + extraPrice} ₽ за ${tourists} туристов`}
+          />
         </Link>
 
-        {/* <section className="plan" id={"plan"}>
-        <h3 className="plan__title">Программа тура</h3>
-        {plan.map((day, i) => (
-          <div className="plan__day" key={i}>
-            <div className="plan__day-container">
-              <div className="plan__day-number-container">
-                <div className="plan__day-number-bg">
-                  <p className="plan__day-number">{i + 1}</p>
-                </div>
-                <p className="plan__day-text">день</p>
-              </div>
-              <img
-                src={planArrowIcon}
-                alt="Стрелка"
-                className="plan__day-arrow"
-              />
-            </div>
-
-            <div className="plan__day-schedule">
-              {day.schedule.map((item, j) => (
-                <div className="plan__day-schedule-item" key={j}>
-                  {item.time && <p className="plan__day-time">{item.time}</p>}
-                  <ul className="plan__day-bullets">
-                    {item.bullets.map((bullet, k) => (
-                      <li className="plan__day-bullet" key={k}>
-                        <div className="plan__day-bullet-dot"></div>
-                        <p className="plan__day-bullet-text">{bullet}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-              <div className="plan__day-extra">
-                {day.extra.map((item, j) => (
-                  <div
-                    className="plan__day-extra-item"
-                    style={{ backgroundImage: "url(" + item.image + ")" }}
-                    key={j}
-                  >
-                    <p className="plan__day-extra-about">{item.about}</p>
-                    <p className="plan__day-extra-name">{item.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </section> */}
+        <img src={feedback} alt={title} className="feedback" id={"feedback"} />
       </div>
     </>
   );
