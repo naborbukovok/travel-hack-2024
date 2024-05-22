@@ -1,5 +1,5 @@
-## Moscow Travel Hack 2024 Трек BookingTech
-Репозиторий решения хакатона TravelHack 2024 трека BookingTech команды dorateam.  
+## Moscow Travel Hack 2024
+Репозиторий решения для хакатона Moscow Travel Hack 2024 (трек BookingTech) от команды dorateam. Скоро здесь появится подробное описание проекта ⏰
 
 ### WIP
 
